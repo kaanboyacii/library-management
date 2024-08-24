@@ -43,7 +43,9 @@ npm install
 ### 3. Database Configuration
 
 To configure the database, update the config/config.json file according to your database settings.
-
+```bash
+npx sequelize-cli db:create 
+```
 ### 4. Apply Database Migrations
 
 Run the migrations to create the database tables:
