@@ -12,8 +12,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/api/books', bookRoutes);
-app.use('/api/users', userRoutes);
+app.use('/books', bookRoutes);
+app.use('/users', userRoutes);
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
@@ -23,7 +23,7 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, async () => {
     try {
-        await sequelize.authenticate(); 
+        await sequelize.authenticate();
         console.log('Database connection established successfully.');
         console.log(`Server is running on port ${PORT}`);
     } catch (error) {
