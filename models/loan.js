@@ -9,6 +9,13 @@ const Loan = sequelize.define('Loan', {
   returnedAt: {
     type: DataTypes.DATE,
     allowNull: true
+  },
+  score: {
+    type: DataTypes.INTEGER,
+    validate: {
+      min: 1,
+      max: 10,
+    }
   }
 }, {});
 

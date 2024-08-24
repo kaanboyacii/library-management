@@ -4,9 +4,23 @@ import dotenv from 'dotenv';
 import sequelize from './config/db.js';
 import bookRoutes from './routes/bookRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import User from './models/user.js';
+import Book from './models/book.js';
+import Loan from './models/loan.js';
+
+User.associate({ Loan });
+Book.associate({ Loan });
+Loan.associate({ User, Book });
+
+sequelize.sync()
+    .then(() => {
+        console.log('Database synced');
+    })
+    .catch((error) => {
+        console.error('Error syncing database:', error);
+    });
 
 dotenv.config();
-
 const app = express();
 
 app.use(bodyParser.json());

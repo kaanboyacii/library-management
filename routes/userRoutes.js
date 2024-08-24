@@ -15,5 +15,6 @@ router.post('/', createUser);
 
 router.post('/:userId/borrow/:bookId', borrowBook);
 router.post('/:userId/return/:loanId', returnBook);
+router.post('/:userId/rate/:loanId', returnBook);
 
 export default router;

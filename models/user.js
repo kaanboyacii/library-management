@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../config/db.js';
+import Loan from './loan.js'; // Import Loan model
 
 const User = sequelize.define('User', {
   name: {
