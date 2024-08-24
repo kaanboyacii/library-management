@@ -6,15 +6,15 @@ import {
     borrowBook,
     returnBook
 } from '../controllers/userController.js';
+import { validateUser } from '../validators/userValidator.js';
 
 const router = express.Router();
 
 router.get('/', getAllUsers);
 router.get('/:id', getUserById);
-router.post('/', createUser);
+router.post('/', validateUser, createUser);
 
 router.post('/:userId/borrow/:bookId', borrowBook);
 router.post('/:userId/return/:loanId', returnBook);
-router.post('/:userId/rate/:loanId', returnBook);
 
 export default router;
